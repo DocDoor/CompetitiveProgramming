@@ -1,0 +1,108 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const long long N = 5e4 + 5, Q = 1e5 + 5, W = 2e5 + 5;
+
+long long t, n, q, ans[Q], a, b, w, c;
+
+struct Query{
+    long long indx, w;
+};
+
+struct Road{
+    long long b, w, c;
+};
+
+vector<Road> roadtree[N];
+vector<Query> queries[N];
+
+struct SegTree{
+    long long tree[W * 4] = {0};
+
+    void reset(){
+        for(int i = 0; i < W * 4; i++) tree[i] = 0;
+    }
+
+    void update(long long v, long long l, long long r, long long pos, long long val){
+        if(l == r){
+            tree[v] = val;
+        }
+        else{
+            long long m = l + (r - l) / 2;
+
+            if(pos <= m) update(v * 2, l, m, pos, val);
+            else update(v * 2 + 1, m + 1, r, pos, val);
+
+            tree[v] = gcd(tree[v * 2], tree[v * 2 + 1]);
+        }
+    }
+
+    long long query(long long v, long long tl, long long tr, long long l, long long r){
+        if(l > r) return 0;
+        if(tl == l && tr == r){
+            return tree[v];
+        }
+        else{
+            long long tm = tl + (tr - tl) / 2;
+            return gcd(query(v * 2, tl, tm, l, min(tm, r)), query(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r));
+        }
+    }
+};
+
+SegTree segtree;
+
+void dfs(long long v, long long p){
+    for(auto i : queries[v]){
+        ans[i.indx] = segtree.query(1, 0, W - 1, 0, i.w);
+    }
+
+    for(auto i : roadtree[v]){
+        if(i.b != p){
+            long long oldval = segtree.query(1, 0, W - 1, i.w, i.w);
+
+            segtree.update(1, 0, W - 1, i.w, i.c);
+
+            dfs(i.b, v);
+
+            segtree.update(1, 0, W - 1, i.w, oldval);
+        }
+    }
+}
+
+void solve(long long tcase){
+    cin >> n >> q;
+
+    segtree.reset();
+
+    for(int i = 1; i <= n; i++) roadtree[i].clear(), queries[i].clear();
+
+    for(int i = 0; i < n - 1; i++){
+        cin >> a >> b >> w >> c;
+
+        roadtree[a].push_back({b, w, c});
+        roadtree[b].push_back({a, w, c});
+    }
+
+    for(int i = 1; i <= q; i++){
+        cin >> a >> w;
+
+        queries[a].push_back({i, w});
+    }
+
+    dfs(1, 0);
+
+    cout << "Case #" << tcase << ": ";
+    for(int i = 1; i <= q; i++) cout << ans[i] << " ";
+    cout << "\n";
+}
+
+int main(){    
+    ios_base::sync_with_stdio(false);cin.tie(NULL);
+    
+    cin >> t;
+
+    for(int tcase = 1; tcase <= t; tcase++){
+        solve(tcase);
+    }
+}
