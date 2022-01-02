@@ -1,16 +1,16 @@
 struct mint {
     int val = 0;
  
-    mint(long long a = 0) : val(a % MOD) {if(val < 0) val += MOD;}
+    mint(long long a = 0) : val(a % MOD) {if (val < 0) val += MOD;}
     mint(long long a, long long b) {*this += a; *this /= b;}
  
-    mint &operator += (const mint &b) {val += b.val; if(val >= MOD) val -= MOD; return *this; }
-    mint &operator -= (const mint &b) {val -= b.val; if(val < 0) val += MOD; return *this; }
-    mint &operator *= (const mint &b) {val = (1ll * val * b.val) % MOD; return *this; }
+    mint &operator += (const mint &b) {val += b.val; if(val >= MOD) val -= MOD; return *this;}
+    mint &operator -= (const mint &b) {val -= b.val; if(val < 0) val += MOD; return *this;}
+    mint &operator *= (const mint &b) {val = (1ll * val * b.val) % MOD; return *this;}
  
-    mint mexp(mint a, long long b){
+    mint mexp(mint a, long long b) {
         mint c(1);
-        for(; b > 0; b /= 2, a *= a) if(b & 1) c *= a;
+        for(; b > 0; b /= 2, a *= a) if (b & 1) c *= a;
         return c;
     }
  
