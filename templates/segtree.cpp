@@ -1,4 +1,4 @@
-// just range sum queries
+// just range sum queries *çöp template kullanma , les gibi yazım tarzı
 struct SegTree {
   vector<int> seg, a; // use long long 
   int n;
