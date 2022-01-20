@@ -1,6 +1,6 @@
 vector<pair<int, long long>> adj[200000]; // adjacency list
 priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> pq; // min heap
-vector<long long> dist(n + 1, 2e17); // nodes , distances
+vector<long long> dist(2e5 + 5, 2e17); // nodes , distances
 
 // init edges 
 
