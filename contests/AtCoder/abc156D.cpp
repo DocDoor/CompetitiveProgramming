@@ -14,11 +14,7 @@ long long mmul(long long a, long long b) {
 	return ((a % mod) * (b % mod)) % mod; 
 }
 long long msub(long long a, long long b) {
-	if (a >= b) {
-		return (a - b) % mod;
-	} else {
-		return mod - (b - a) % mod;
-	}
+	return (((a % mod) - (b % mod)) + mod) % mod;
 }
 long long madd(long long a, long long b) {
 	return ((a % mod) + (b % mod)) % mod;
@@ -26,7 +22,7 @@ long long madd(long long a, long long b) {
 long long minv(long long b) {
 	return mpow(b, mod - 2);
 }
-long long modbinom(long long n, long long r){
+long long mbinom(long long n, long long r){
 	long long res = 1;
   for (int i = 0; i < r; ++i) {
   	res = res * (n - i) % mod;
@@ -39,5 +35,5 @@ int main() {
 	cin.tie(0);
 	long long n, a, b;
 	cin >> n >> a >> b;
-	cout << msub(mpow(2, n) - 1, modbinom(n, a) + modbinom(n, b));
+	cout << msub(mpow(2, n) - 1, mbinom(n, a) + mbinom(n, b));
 }	
