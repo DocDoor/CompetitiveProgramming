@@ -25,17 +25,17 @@ void solve() {
   vt<ll> a(n), b(n);
   trav(i, a) cin >> i;
   trav(i, b) cin >> i;
-  vt<vt<ll>> dp(n+1, vt<ll> (3001, 0));
-  dp[0][0]=1;
-  FOR(i, n+1) {
-    FOR(j, 3000) {
-      dp[i][j+1]+=dp[i][j];
-      dp[i][j+1]%=mod;
+  vt<vt<ll>> dp(n + 1, vt<ll> (3001, 0));
+  dp[0][0] = 1;
+  FOR (i, n + 1) {
+    FOR (j, 3000) {
+      dp[i][j + 1] +=d p[i][j];
+      dp[i][j + 1] %= mod;
     }
-    if(i^n) {
-      for(ll j=a[i]; j<=b[i]; ++j) {
-        dp[i+1][j]+=dp[i][j];
-        dp[i+1][j]%=mod;
+    if (i ^ n) {
+      for (ll j = a[i]; j <= b[i]; ++j) {
+        dp[i + 1][j] += dp[i][j];
+        dp[i + 1][j] %= mod;
       }
     }
   }
@@ -45,9 +45,9 @@ void solve() {
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
-  int tc=1;
+  int tc = 1;
   // cin >> tc;
-  while(tc--) {
+  while (tc--) {
     solve();
   }
 }
