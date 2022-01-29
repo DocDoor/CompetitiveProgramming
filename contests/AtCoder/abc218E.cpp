@@ -52,7 +52,7 @@ void solve() {
   cin >> n >> m;
   DSU a(n + 5);
   vector<pair<ll, pair<ll, ll>>> edges;
-  FOR (i, m) {
+  FOR(i, m) {
     ll u, v, w;
     cin >> u >> v >> w;
     edges.pb({w, {u, v}});
