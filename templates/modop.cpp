@@ -1,5 +1,10 @@
 namespace modop { 
-  long long mod = 1e9 + 7;
+  long long mod = 1e9 + 7, N = 3e5;
+	long long fact[N];
+	void init() {
+		fact[0] = 1;
+		for (long long i = 1; i < N; ++i) fact[i] = (fact[i - 1] * i) % mod;
+	}
   long long madd(long long a, long long b) {
     return (a + b) % mod;
   }
@@ -32,6 +37,4 @@ namespace modop {
   long long lcm(ll x, ll y) {
     return x * y / gcd(x, y);
   }
-}
-
-using namespace modop;
+} using namespace modop;
