@@ -12,8 +12,8 @@ using namespace std;
 #define fi first
 #define se second
 
-#define FOR(i, n) for(int i=0; i<n; ++i)
-#define trav(a, x) for(auto &a : x) 
+#define FOR(i, n) for (int i = 0; i < n; ++i)
+#define trav(a, x) for (auto &a : x) 
 
 const ll INF = 2e18, mod = 998244353, mxN = 2e5+5;
 
