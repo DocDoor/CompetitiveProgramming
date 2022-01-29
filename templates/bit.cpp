@@ -1,25 +1,27 @@
-struct FenwickTree {  
-  vector<int> bit;  // binary indexed tree
-  int n;
+struct ft {
+	vector<long long> bit;
+	int n;
+	
+	ft(int x) {
+		n = x;
+		bit.resize(x + 1, 0);
+	}
 
-  FenwickTree(int n) {
-    this->n=n+1;
-    bit.assign(n+1, 0);
-  }
+	void add(int ind, int val) {
+		for (ind; ind <= n; ind += ind & -ind) {
+			bit[ind] += val;
+		}
+	}
 
-  ll sum(int idx) {
-    int ret=0;
-    for(++idx; idx>0; idx-=idx&-idx)
-      ret+=bit[idx];
-    return ret;
-  }
+	long long sum(int ind) {
+		long long ret = 0;
+		for (; ind > 0; ind -= ind & -ind) {
+			ret += bit[ind];
+		}
+		return ret;
+	}
 
-  int query(int l, int r) {
-    return sum(r)-sum(l-1);
-  }
-
-  void add(int idx, int delta) {
-    for(++idx; idx<n; idx+=idx&-idx)
-      bit[idx]+=delta;
-  }
+	long long query(int l, int r) {
+		return sum(r) - sum(l - 1);
+	}
 };
