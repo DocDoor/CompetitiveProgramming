@@ -1,6 +1,4 @@
 // problem link -> https://atcoder.jp/contests/abc214/tasks/abc214_d
-
-// author : DocDoor
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -30,25 +28,25 @@ const int mxN=1e5+6;
 
 struct Edge {
   ll a, b, w;
-  bool operator<(Edge scnd) const {
-    return w<scnd.w;
+  bool operator < (Edge scnd) const {
+    return w < scnd.w;
   }
 };
 
 struct DSU {
   ll par[mxN], setsize[mxN];
-  DSU() {for(int i=1; i<mxN; ++i) par[i]=i, setsize[i]=1;}
+  DSU() {for (int i = 1; i < mxN; ++i) par[i] = i, setsize[i] = 1;}
   ll find(int x) {
-    if(par[x]==x) return x;
-    else return par[x]=find(par[x]);
+    if (par[x] == x) return x;
+    else return par[x] = find(par[x]);
   } 
   void setunion(ll a, ll b) {
-    a=find(a);
-    b=find(b);
-    if(a!=b) {
-      if(setsize[b]>setsize[a]) swap(a, b);
-      par[b]=par[a];
-      setsize[a]+=setsize[b]; 
+    a = find(a);
+    b = find(b);
+    if (a != b) {
+      if (setsize[b] > setsize[a]) swap(a, b);
+      par[b] = par[a];
+      setsize[a] += setsize[b]; 
     }
   }
 };
@@ -59,13 +57,13 @@ DSU dsu;
 void solve() {
   int n;
   cin >> n;
-  FOR(i, n-1) {
+  FOR (i, n - 1) {
     cin >> Edges[i].a >> Edges[i].b >> Edges[i].w;
   }
-  sort(Edges, Edges+n-1);
-  ll ans=0;
-  FOR(i, n-1) {
-    ans+=dsu.setsize[dsu.find(Edges[i].a)]*dsu.setsize[dsu.find(Edges[i].b)]*Edges[i].w;
+  sort(Edges, Edges + n - 1);
+  ll ans = 0;
+  FOR (i, n - 1) {
+    ans += dsu.setsize[dsu.find(Edges[i].a)] * dsu.setsize[dsu.find(Edges[i].b)] * Edges[i].w;
     dsu.setunion(Edges[i].a, Edges[i].b);
   }
   cout << ans;
@@ -74,9 +72,9 @@ void solve() {
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
-  int t=1;
+  int t = 1;
   // cin >> t;
-  while(t--) {
+  while (t--) {
     solve();
   }
 } 
