@@ -15,12 +15,12 @@ using namespace std;
 #define fi first
 #define se second
 
-#define FOR(i, n) for(int i=0; i<n; ++i)
-#define FORO(i, n) for(int i=1; i<=n; ++i)
-#define trav(a, x) for(auto &a : x) 
+#define FOR(i, n) for (int i = 0; i < n; ++i)
+#define FORO(i, n) for (int i = 1; i <= n; ++i)
+#define trav(a, x) for (auto &a : x) 
 
-const ll INF=2e18, M=1e9;
-const int mxN=2e5+5;
+const ll INF = 2e18, M = 1e9;
+const int mxN = 2e5 + 5;
 
 struct DSU {
   vector<int> sz, par;
