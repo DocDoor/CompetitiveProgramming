@@ -14,10 +14,10 @@ using namespace std;
 #define fi first
 #define se second
  
-#define FOR(i, n) for(ll i=0; i<n; ++i)
-#define trav(a, x) for(auto &a : x) 
- 
-const ll INF=2e18, mxN=2e5+5, mod=998244353;
+#define FOR(i, n) for (ll i = 0; i < n; ++i)
+#define trav(a, x) for (auto &a : x) 
+  
+const ll INF = 2e18, mxN = 2e5 + 5, mod = 998244353;
  
 void solve() {
   int n;
