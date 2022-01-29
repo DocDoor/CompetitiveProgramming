@@ -14,7 +14,6 @@ void dfs(int src, int p) {
     }
   }
 }
-
  
 int lca(int x, int y) {
   if (depth[y] > depth[x]) swap(x, y);
