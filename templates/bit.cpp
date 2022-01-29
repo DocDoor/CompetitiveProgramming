@@ -1,3 +1,4 @@
+
 struct ft {
 	vector<long long> bit;
 	int n;
