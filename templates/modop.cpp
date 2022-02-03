@@ -34,7 +34,7 @@ namespace modop {
     if (y == 0) return x;
     return gcd(y, x % y);
   }
-  long long lcm(ll x, ll y) {
+  long long lcm(long long x, long long y) {
     return x * y / gcd(x, y);
   }
 } using namespace modop;
