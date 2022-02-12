@@ -1,4 +1,3 @@
-
 //you can define md with template or inside the struct for other uses 
 constexpr int md = int(1e9) + 7;
 struct Mint {
