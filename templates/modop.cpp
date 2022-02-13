@@ -1,5 +1,5 @@
 namespace modop { 
-  long long mod = 1e9 + 7, N = 3e5;
+  const long long mod = 1e9 + 7, N = 3e5;
   long long fact[N];
   void init() {
     fact[0] = 1;
