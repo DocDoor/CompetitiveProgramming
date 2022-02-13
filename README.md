@@ -2,7 +2,7 @@
 * [General info](#general-info)
 
 ## General info
-This repository is for algorithm templates in C++
+* This repository is for algorithm templates in C++
 
 ### Data Structures
 * [Disjoint Set Union](https://github.com/DocDoor/CompetitiveProgramming/blob/main/templates/DSU.cpp)
