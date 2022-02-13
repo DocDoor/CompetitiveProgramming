@@ -6,7 +6,7 @@ This repository is for algorithm templates in C++
 
 ### Data Structures
 * [Disjoint Set Union](https://github.com/DocDoor/CompetitiveProgramming/blob/main/templates/DSU.cpp)
-* Segment Tree
+* [Segment Tree](https://github.com/DocDoor/CompetitiveProgramming/blob/main/templates/segtree.cpp)
 * [Fenwick Tree](https://github.com/DocDoor/CompetitiveProgramming/blob/main/templates/bit.cpp)
 * Sparse Table
 * Sqrt Decomposition
