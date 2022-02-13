@@ -4,8 +4,6 @@
 ## General info
 This repository is for algorithm templates in C++
 
-# Al
-
 ### Data Structures
 * [Disjoint Set Union](https://github.com/DocDoor/CompetitiveProgramming/blob/main/templates/DSU.cpp)
 * Segment Tree
