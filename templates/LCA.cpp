@@ -33,7 +33,7 @@ int lca(int x, int y) {
   return par[x][0];
 }
 
-// dist[1]=-1;
+// dist[1] = -1;
 // dfs(1, 1);
 
 // lca(a, b) -> returns lowest common ancestor of a and b
